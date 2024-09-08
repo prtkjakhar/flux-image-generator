@@ -23,11 +23,13 @@ export async function GET(req) {
 }
 export async function POST(req) {
   const body = await req.json()
-  const { prompt } = body?.input;
+  const { prompt, aspectRatio, disableSafetyChecker } = body?.input;
 
   const data = {
     input: {
       prompt,
+      disable_safety_checker: disableSafetyChecker,
+      aspect_ratio: aspectRatio
     },
   };
 
